@@ -1,0 +1,31 @@
+/*place global styles here */
+html,
+body {
+	/* @apply h-full overflow-hidden; */
+	font-family: 'cairo', sans-serif, monospace;
+	overflow: hidden;
+}
+
+:root[lang='ar'] {
+	direction: rtl;
+	font-family: 'Cairo', sans-serif;
+}
+
+.map-wrap {
+	position: relative; /* Ensure the popup is positioned relative to this container */
+	width: 100%;
+	height: calc(100vh - 77px);
+}
+
+.map {
+	position: absolute;
+	height: 100vh;
+}
+
+.card {
+	position: absolute; /* Position the popup absolutely within the map container */
+	top: 50%; /* Center vertically */
+	left: 50%; /* Center horizontally */
+	width: 200px; /* Set the width of the popup */
+	z-index: 1000; /* Ensure the popup appears above other map elements */
+}
