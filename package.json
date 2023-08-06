@@ -45,6 +45,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/cairo": "^5.0.7",
+		"cesium": "^1.108.0",
 		"maplibre-gl": "^3.2.1",
 		"svelte-maplibre": "^0.3.2"
 	}

@@ -1,11 +1,13 @@
 <script lang="ts">
 	import LL from '$i18n/i18n-svelte';
+	import CesiumMap from '$lib/CesiumMap.svelte';
 	import Map from '$lib/Map.svelte';
 	import { onMount } from 'svelte';
 
 	console.info($LL.log({ fileName: '+page.svelte' }));
 
 	let spectators = 0;
+	let showCesium = true; // Reactive variable to toggle between Map and CesiumMap
 
 	onMount(() => {
 		const interval = setInterval(updateSpectatorCount, 2_000);
@@ -22,6 +24,10 @@
 	};
 
 	const day = new Date('2023-08-01');
+
+	const toggleMap = () => {
+		showCesium = !showCesium;
+	};
 </script>
 
 <h2>
@@ -36,4 +42,12 @@
 	{$LL.spectators(spectators)}
 </div>
 
-<Map />
+<button on:click={toggleMap}>
+	{showCesium ? 'Switch to Map' : 'Switch to CesiumMap'}
+</button>
+
+{#if showCesium}
+	<CesiumMap />
+{:else}
+	<Map />
+{/if}
